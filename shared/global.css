@@ -248,6 +248,14 @@ button { font-family: inherit; cursor: pointer; }
   padding-top: 4px;
 }
 
+/* Divider line above social title */
+.contact-overlay__social-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.22), transparent);
+  margin: 4px 0;
+}
+
 .contact-overlay__social-title {
   font-size: 13px;
   text-transform: uppercase;
@@ -261,24 +269,25 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
+  padding: 10px 0 4px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
   color: #fff;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  font-size: clamp(20px, 3.5vw, 26px);
+  font-weight: 700;
+  transition: opacity .2s ease, transform .2s ease;
 }
 .contact-overlay__social-link:hover {
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.2);
+  background: transparent;
+  border-color: transparent;
   transform: translateX(4px);
+  opacity: 0.8;
 }
 .contact-overlay__social-link svg {
-  width: 22px;
-  height: 22px;
+  width: clamp(22px, 3.5vw, 28px);
+  height: clamp(22px, 3.5vw, 28px);
   flex-shrink: 0;
   fill: currentColor;
 }
@@ -300,12 +309,9 @@ button { font-family: inherit; cursor: pointer; }
   .contact-overlay__content { grid-template-columns: 1fr; }
   .contact-overlay__social-col { padding-top: 0; }
 
-  /* pfp half size on mobile */
+  /* hide pfp on mobile */
   .contact-overlay__pfp-wrap {
-    max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    order: 3;
+    display: none;
   }
 
   /* social title, phone and tg above pfp on mobile */
