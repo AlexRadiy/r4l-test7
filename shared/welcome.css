@@ -1,0 +1,305 @@
+/* ===============================
+   Welcome Page Styles
+   =============================== */
+
+/* --- Hero section --- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 4vw;
+  background: url('/hero-10.jpg') center center / cover no-repeat;
+  margin-top: calc(-1 * var(--nav-height));
+}
+
+/* Video background */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.1) brightness(0.9);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10,10,10,.45) 0%, rgba(10,10,10,.30) 60%, rgba(10,10,10,.55) 100%),
+    radial-gradient(1200px 800px at 50% 50%, rgba(247,244,239,.08), rgba(247,244,239,.0) 40%);
+  mix-blend-mode: multiply;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 860px;
+  text-align: center;
+  padding: clamp(40px, 6vw, 80px) 0 clamp(40px, 5vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: 100svh;
+}
+
+.hero__headline {
+  position: absolute;
+  top: 30%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: "Roboto Serif", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+  font-size: clamp(28px, 4.5vw, 52px);
+  line-height: 1.05;
+  animation: floatIn .85s ease both;
+  text-shadow: 0 8px 40px rgba(0,0,0,.5);
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.hero__sub {
+  margin: clamp(40px, 6vh, 80px) 0 16px;
+  font-family: "Roboto Serif", ui-serif, Georgia, serif;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: rgba(247,244,239,.92);
+  font-weight: 400;
+  max-width: 680px;
+  animation: fadeIn .9s .25s ease both;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45);
+  line-height: 1.6;
+}
+
+.hero__value {
+  margin: 0 0 32px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 16px);
+  color: rgba(247,244,239,.75);
+  max-width: 560px;
+  animation: fadeIn .9s .4s ease both;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+
+.hero__btn {
+  animation: fadeIn .9s .55s ease both;
+  margin-bottom: 28px;
+}
+
+.hero__down {
+  border: 0;
+  background: transparent;
+  color: rgba(247,244,239,.75);
+  cursor: pointer;
+  opacity: .8;
+  transition: transform .25s ease, opacity .25s ease;
+  animation: fadeIn .9s .7s ease both;
+  padding: 4px;
+}
+.hero__down:hover { transform: translateY(4px); opacity: 1; }
+.hero__down svg { display: block; }
+
+/* --- Value Proposition section --- */
+.section {
+  padding: clamp(56px, 8vw, 100px) 0;
+  position: relative;
+}
+
+.section--value {
+  background: var(--bg);
+}
+
+.section--value .h2 { margin-bottom: 40px; }
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.value-card {
+  background: #fff;
+  border: 1px solid color-mix(in oklab, var(--primary), white 65%);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 3vw, 36px);
+  box-shadow: var(--shadow-soft);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+
+.value-card__icon {
+  font-size: 36px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.value-card h3 {
+  margin: 0 0 8px;
+  font-family: "Roboto", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.6vw, 19px);
+  color: var(--accent-dark);
+}
+
+.value-card p {
+  margin: 0;
+  font-size: clamp(14px, 1.3vw, 16px);
+  color: var(--text);
+  opacity: .85;
+  line-height: 1.55;
+}
+
+/* --- Credibility section --- */
+.section--cred {
+  background: color-mix(in oklab, var(--bg), var(--primary) 8%);
+}
+
+.cred-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+
+.cred-stats {
+  display: flex;
+  gap: clamp(20px, 3vw, 40px);
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.stat__num {
+  font-family: "Roboto Serif", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(42px, 5vw, 68px);
+  color: var(--accent-dark);
+  line-height: 1;
+}
+
+.stat__plus {
+  color: var(--brand-gold);
+}
+
+.stat__label {
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 600;
+}
+
+.cred-text .h2 { margin-bottom: 16px; }
+.cred-text p {
+  font-size: clamp(15px, 1.4vw, 17px);
+  color: var(--text);
+  opacity: .85;
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+.cred-text p:last-child { margin-bottom: 0; }
+
+/* --- CTA dark section --- */
+.section--cta-dark {
+  background: var(--accent-dark);
+  color: #fff;
+  text-align: center;
+}
+.section--cta-dark .h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+.section--cta-dark .cta-note {
+  margin: 16px 0 0;
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: rgba(255,255,255,.65);
+}
+
+/* --- Bottom group: sub-text + scroll arrow pushed to bottom of hero --- */
+.hero__bottom-group {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+/* --- Responsive --- */
+@media (max-width: 860px) {
+  .value-grid { grid-template-columns: 1fr 1fr; }
+  .cred-inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .value-grid { grid-template-columns: 1fr; }
+}
+
+/* --- CTA floating: hide until user scrolls past hero --- */
+body:not(.scrolled-past-hero) .cta-floating {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* --- Left-side case button (shown after video ends, scrolls with page) --- */
+.hero__case-btn--left {
+  position: absolute;
+  left: 4vw;
+  bottom: clamp(40px, 5vw, 60px);
+  transform: none;
+  z-index: 20;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 10px 10px;
+  background: #1a1a1a;
+  padding: 14px 22px;
+  border-radius: 22px;
+  color: #fff;
+  text-decoration: none;
+  backdrop-filter: blur(7px);
+  font-weight: 700;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+  animation: none;
+  margin-top: 0;
+}
+.hero__case-btn--left:hover {
+  background: #e093182f;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px 6px rgba(0,0,0,0.4);
+}
+.hero__case-btn--left .hero__case-btn-title {
+  font-size: 30px;
+}
+.hero__case-btn--left .hero__case-btn-sub {
+  font-size: 12px;
+  opacity: .75;
+}
+
+.link-text-style {
+  /* Inherits font size and font family from the <p> tag */
+  color: inherit; 
+  text-decoration: underline;
+  transition: color 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.link-text-style:hover {
+  color: #000000; /* Turns solid black on hover */
+  text-decoration: underline; /* Keeps the underline visible */
+}

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6DDVGRLCB7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6DDVGRLCB7');
+  </script>
+
+  <title>Room4Life — Управление недвижимостью в Москве</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Room4Life — полный цикл управления недвижимостью в Москве. Ремонт, дизайн, поиск арендаторов, пассивный доход." />
+  <meta property="og:title" content="Room4Life — от идеи до пассивного дохода" />
+  <meta property="og:description" content="Полный цикл управления недвижимостью в Москве." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/hero-10.jpg" />
+  <meta name="theme-color" content="#feedcf" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto:wght@400;500;700;900&family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,600;8..144,700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/shared/global.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/footer.css" />
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="/shared/welcome.css" />
+</head>
+<body>
+
+  <!-- Floating CTA (all pages) -->
+  <button class="cta-floating" aria-label="Бесплатная консультация">Всегда на связи</button>
+
+  <!-- Navigation -->
+  <header class="site-nav" id="site-nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/welcome" aria-label="Room4Life — на главную">
+        <span class="nav__logo-text">
+  <span class="logo-letters">Room</span><span class="logo-four">4</span><span class="logo-letters">Life</span>
+</span>
+        <canvas class="nav__sphere" id="nav-sphere" width="44" height="44" aria-hidden="true"></canvas>
+      </a>
+      <nav class="nav__menu" aria-label="Основная навигация">
+        <a class="nav__link" href="/welcome">Главная</a>
+        <a class="nav__link" href="/process">Процесс</a>
+        <a class="nav__link" href="/cases">Кейсы</a>
+        <a class="nav__link" href="/calculator">Калькулятор</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================== -->
+  <!-- HERO SECTION             -->
+  <!-- ======================== -->
+  <section id="hero" class="hero" aria-label="Главный экран">
+    <video class="hero__video" autoplay muted playsinline poster="/hero-10.jpg" preload="metadata">
+      <source src="/hero-10.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__overlay"></div>
+
+    <!-- Case button moved outside hero__inner to stick to the absolute bottom left of the screen -->
+    <a href="/cases#case-2" class="hero__case-btn hero__case-btn--left" id="hero-case2-btn" aria-label="Кейс 2 — м.Очаково" style="display:none">
+       <span class="hero__case-btn-sub">На обложке:</span>
+      <span class="hero__case-btn-title">[КЕЙС2]</span>
+      <span class="hero__case-btn-sub">Больше фото -></span>
+    </a>
+
+    <div class="hero__inner">
+      <h1 class="hero__headline">
+      Заботимся о вашем доме так же искренне, как это делаете вы сами.
+      </h1>
+      <div class="hero__bottom-group">
+        <p class="hero__sub">
+          Раздутые сметы, серые договоры, проблемы с соседями... Хватит! Квартира не должна быть бременем! <br><br> Мы превращаем проблемы в свободу. 
+        </p>
+          <p class="hero__value">
+        </p>
+
+        <button class="hero__down" id="scroll-next" aria-label="Прокрутить вниз">
+          <svg width="34" height="50" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- VALUE PROPOSITION        -->
+  <!-- ======================== -->
+  <section class="section section--value" id="value" aria-labelledby="value-title">
+    <div class="container">
+      <h2 id="value-title" class="h2 reveal">Что мы сделаем для вас?</h2>
+      <p class="subhead reveal">Полный цикл управления недвижимостью в Москве. Возьмёмся за отдельную задачу или заберем на себя все хлопоты — чтобы ваша квартира работала, а вы оставались свободными.</p>
+
+      <div class="value-grid">
+        <div class="value-card reveal">
+          <span class="value-card__icon">🏠</span>
+          <h3>Дизайн и Ремонт</h3>
+          <p>Собственная строительная компания — прозрачная смета и внимание к каждому стыку. Работаем быстро и оптимально.
+          <br><br>
+            <a href="/cases" class="link-text-style">Кейсы ремонтов →</a>
+          </p>
+      </div>
+   <div class="value-card reveal">
+          <span class="value-card__icon">📋</span>
+          <h3>Люди, которые будут беречь ваш дом</h3>
+          <p>Выбираем жильцов, как для себя. Проверяем репутацию и финансовую стабильность, следим за юридической чистотой сделок.</p>
+        </div>
+        <div class="value-card reveal">
+          <span class="value-card__icon">🧘</span>
+          <h3>Ваш «тихий» доход</h3>
+          <p>Ремонт крана в 2 часа ночи, общение с УК и налоги — это наши задачи. Квартира живёт, приносит доход, но не требует вашего внимания. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- CREDIBILITY              -->
+  <!-- ======================== -->
+  <section class="section section--cred" id="cred" aria-labelledby="cred-title">
+    <div class="container">
+      <div class="cred-inner">
+        <div>
+          <div class="cred-stats reveal">
+            <div class="stat">
+              <span class="stat__num">8</span>
+              <span class="stat__label">лет на рынке</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">40<span class="stat__plus">+</span></span>
+              <span class="stat__label">квартир</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">300<span class="stat__plus">+</span></span>
+              <span class="stat__label">довольных жильцов</span>
+            </div>
+          </div>
+        </div>
+        <div class="cred-text reveal">
+          <h2 id="cred-title" class="h2">Наша главная задача — <br>ваше спокойствие.</h2>
+          <p>
+          С 2018 года мы помогаем москвичам с недвижимостью. Почему к нам возвращаются?
+          </p>
+          <p>
+            Когда за дизайн, ремонт и поиск жильцов отвечает одна команда, каждое решение работает на конкретный результат. Зная цель, мы можем направлять ваши вложения так, чтобы они действительно принесли максимум.
+          </p>
+          <p>
+             Мы верим, что недвижимость должна приносить свободу, а не стресс. Жизнь, а не список дел!
+          </p>
+          <a href="/process" class="btn btn--dark">Как это работает →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- CTA DARK SECTION         -->
+  <!-- ======================== -->
+  <section class="section section--cta-dark" id="cta-section" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 id="cta-title" class="h2 reveal">Узнайте истинный потенциал своей квартиры:</h2>
+      <a href="/calculator" class="btn btn--primary reveal">Калькулятор Доходности</a>
+      <p class="cta-note reveal"><br><br>Моментальный, актуальный анализ. Совершенно бесплатно. Конкретные рекомендации сразу.</p>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- FOOTER                   -->
+  <!-- ======================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <div class="logo--sm">Room4Life</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__item">
+          <strong>Телефон/Whatsup:</strong> <a href="tel:+79267100331">+7 (926) 710 03 31</a>
+        </div>
+        <div class="footer__item">
+          <strong>Наш Офис:</strong> Петровка, 17. ап. 5
+        </div>
+        <div class="footer__item">
+          Посещение офиса только по предварительному звонку.
+        </div>
+      </div>
+      <div class="footer__col footer__copy">
+        2018-2026 © Room4Life
+        <div class="footer__note">
+          <button type="button" class="policy-btn" id="open-policy" aria-haspopup="dialog" aria-controls="policy-dialog">политика сайта</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Policy dialog -->
+  <div id="policy-dialog" class="policy-dialog" role="dialog" aria-modal="true" aria-labelledby="policy-title" aria-hidden="true">
+    <div class="policy-dialog__inner">
+      <button type="button" class="policy-dialog__close" aria-label="Закрыть">×</button>
+      <h2 id="policy-title" class="policy-dialog__title">Политика сайта</h2>
+      <div class="policy-dialog__text">
+        <p>Этот сайт собирает анонимные данные об использовании через Google Analytics 4 (GA4) для анализа общего трафика и улучшения сервиса, гарантируя отсутствие сбора персональных данных (PII).</p>
+        <p>Любая информация, которую вы добровольно отправляете через контактную форму, используется только для ответа на ваш запрос и не передается третьим лицам.</p>
+        <p>Некоторые изображения незначительно доработаны с помощью ИИ в целях веб-дизайна.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Overlay -->
+  <div id="contact-overlay" class="contact-overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title" aria-hidden="true">
+    <div class="contact-overlay__inner">
+      <button type="button" class="contact-overlay__close" aria-label="Закрыть">×</button>
+      <div class="contact-overlay__content">
+        <div class="contact-overlay__form-col">
+          <h2 class="h2 h2--invert" id="overlay-title">Всегда на связи.а</h2>
+          <p class="subhead subhead--invert">Оперативно ответим на любые вопросы</p>
+          <form id="overlay-lead-form" novalidate>
+            <div class="form__row">
+              <label class="label" for="overlay-name">Имя</label>
+              <input id="overlay-name" name="name" class="input" type="text" placeholder="Ваше имя" required />
+            </div>
+            <div class="form__row">
+              <label class="label" for="overlay-phone">Контактные данные</label>
+              <input id="overlay-phone" name="phone" class="input" type="text" inputmode="text" autocomplete="tel" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Вотсап, тг, почта, мобильный телефон" required />
+            </div>
+            <div class="form__row">
+              <label class="label" for="overlay-message">Сообщение</label>
+              <textarea id="overlay-message" name="message" class="textarea" rows="4" placeholder="Кратко опишите задачу"></textarea>
+            </div>
+            <label class="checkbox">
+              <input type="checkbox" required />
+              <span>Согласен(а) на обработку персональных данных</span>
+            </label>
+            <button class="btn btn--dark" type="submit">Отправить</button>
+            <p class="form__hint">Мы свяжемся с вами в ближайшее время</p>
+            <div id="overlay-form-toast" class="toast" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+        <div class="contact-overlay__social-col">
+          <div class="contact-overlay__pfp-wrap">
+            <img src="/pfp1.jpg" alt="Панаско Александр" class="contact__pfp" loading="lazy" />
+          </div>
+          <p class="contact-overlay__social-title">или напишите нам в</p>
+          <a href="#" class="contact-overlay__social-link" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+            Telegram
+          </a>
+          <a href="#" class="contact-overlay__social-link" rel="noopener" aria-label="Max">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.586-1.496c.598-.19 1.365 1.26 2.179 1.815.615.422 1.08.33 1.08.33l2.17-.03s1.135-.07.597-1.123c-.044-.075-.314-.607-1.61-1.716-1.356-1.16-1.174-.973.459-2.98 1.004-1.34 1.404-2.158 1.278-2.508-.12-.336-.866-.247-.866-.247l-2.44.015s-.18-.025-.315.054c-.13.076-.214.254-.214.254s-.388 1.044-.905 1.933c-1.089 1.85-1.526 1.948-1.704 1.832-.414-.268-.31-1.082-.31-1.66 0-1.806.274-2.56-.534-2.752-.268-.065-.465-.107-1.15-.115-.879-.008-1.622.003-2.044.21-.28.136-.495.44-.364.458.163.02.531.1.727.367.254.344.245 1.116.245 1.116s.146 2.126-.34 2.39c-.334.18-.79-.187-1.772-1.866-.504-.872-.885-1.836-.885-1.836s-.073-.174-.2-.267c-.155-.113-.372-.149-.372-.149l-2.32.015s-.348.01-.476.162C4.75 8.6 4.937 9 4.937 9s1.81 4.235 3.861 6.37c1.88 1.957 4.013 1.83 4.013 1.83h.967z"/></svg>
+            Max
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three.js (global, needed for shared.js sphere) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.min.js"></script>
+  <!-- Shared JS (nav, sphere, watermark, policy, console art) -->
+  <script src="/shared/shared.js"></script>
+  <!-- Page-specific JS -->
+  <script src="/shared/welcome.js"></script>
+</body>
+</html>

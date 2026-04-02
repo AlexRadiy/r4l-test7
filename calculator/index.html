@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6DDVGRLCB7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6DDVGRLCB7');
+  </script>
+
+  <title>Калькулятор доходности — Room4Life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Узнайте, сколько может приносить ваша квартира — бесплатный калькулятор Room4Life." />
+  <meta name="theme-color" content="#0d0d0d" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto:wght@400;500;700;900&family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,600;8..144,700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/shared/global.css" />
+  <link rel="stylesheet" href="/shared/nav.css" />
+  <link rel="stylesheet" href="/shared/footer.css" />
+  <link rel="stylesheet" href="/shared/calculator.css" />
+</head>
+<body>
+
+  <button class="cta-floating" aria-label="Бесплатная консультация">Бесплатная консультация</button>
+
+  <header class="site-nav" id="site-nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/welcome" aria-label="Room4Life — на главную">
+        <span class="nav__logo-text">
+          <span class="logo-letters">Room</span><span class="logo-four">4</span><span class="logo-letters">Life</span>
+        </span>
+        <canvas class="nav__sphere" id="nav-sphere" width="44" height="44" aria-hidden="true"></canvas>
+      </a>
+      <nav class="nav__menu" aria-label="Основная навигация">
+        <a class="nav__link" href="/welcome">Главная</a>
+        <a class="nav__link" href="/process">Процесс</a>
+        <a class="nav__link" href="/cases">Кейсы</a>
+        <a class="nav__link" href="/calculator">Калькулятор</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calc-page">
+    <div class="calc-wrap">
+
+      <div class="calc-header">
+        <h1>Калькулятор доходности</h1>
+        <p>Ответьте на вопросы — получите точный анализ рынка за 30 секунд.</p>
+      </div>
+
+      <div class="calc-quiz">
+        <div class="calc-card">
+
+          <div class="calc-field" data-answer-key="address">
+            <p class="calc-question">1. Адрес:</p>
+            <input
+              id="calc-address"
+              type="text"
+              class="calc-input"
+              placeholder="Например: Москва, ул. Тверская, 10"
+              autocomplete="street-address"
+            />
+            <p class="calc-error" id="error-address"></p>
+          </div>
+
+          <div class="calc-field" data-answer-key="rooms">
+            <p class="calc-question">2. Сколько комнат?</p>
+            <div class="calc-options">
+              <button class="calc-option" type="button" data-value="студия">Студия</button>
+              <button class="calc-option" type="button" data-value="1к">1к</button>
+              <button class="calc-option" type="button" data-value="2к">2к</button>
+              <button class="calc-option" type="button" data-value="3к">3к</button>
+              <button class="calc-option" type="button" data-value="4к+">4к+</button>
+            </div>
+            <p class="calc-error" id="error-rooms"></p>
+          </div>
+
+          <div class="calc-field" data-answer-key="condition">
+            <p class="calc-question">3. Текущее состояние квартиры?</p>
+            <div class="calc-options">
+              <button class="calc-option" type="button" data-value="требует капиталки">Требует капиталки</button>
+              <button class="calc-option" type="button" data-value="устаревший (бабушкин) ремонт">Устаревший (бабушкин) ремонт</button>
+              <button class="calc-option" type="button" data-value="голый бетон">Голый бетон</button>
+              <button class="calc-option" type="button" data-value="ремонт от застройщика">Ремонт от застройщика</button>
+              <button class="calc-option" type="button" data-value="современный">Современный</button>
+            </div>
+            <p class="calc-error" id="error-condition"></p>
+          </div>
+
+          <div class="calc-field" data-answer-key="floor">
+            <p class="calc-question">4. Этаж?</p>
+            <div class="calc-toggle">
+              <button class="calc-option" type="button" data-value="первый">Первый</button>
+              <button class="calc-option" type="button" data-value="не первый">Не первый</button>
+            </div>
+            <p class="calc-error" id="error-floor"></p>
+          </div>
+
+          <div class="calc-field" data-answer-key="elevator">
+            <p class="calc-question">5. Лифт?</p>
+            <div class="calc-toggle">
+              <button class="calc-option" type="button" data-value="есть">Есть</button>
+              <button class="calc-option" type="button" data-value="нет">Нет</button>
+            </div>
+            <p class="calc-error" id="error-elevator"></p>
+          </div>
+
+          <div class="calc-field" data-answer-key="goal">
+            <p class="calc-question">6. Ваша цель?</p>
+            <div class="calc-options">
+              <button class="calc-option" type="button" data-value="Посутка (максимальная прибыль)">Посутка (максимальная прибыль)</button>
+              <button class="calc-option" type="button" data-value="Аренда (стабильный доход)">Аренда (стабильный доход)</button>
+              <button class="calc-option" type="button" data-value="Ремонт для себя (инвестиция в будущее)">Ремонт для себя (инвестиция в будущее)</button>
+            </div>
+            <p class="calc-error" id="error-goal"></p>
+          </div>
+
+          <div class="calc-field" data-answer-key="email">
+            <p class="calc-question">7. Введите email для получения расчета</p>
+            <input
+              id="calc-email"
+              type="email"
+              class="calc-email-input"
+              placeholder="example@mail.ru"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <p class="calc-error" id="error-email"></p>
+            
+            <label class="calc-checkbox" style="display:flex; align-items:center; gap:8px; margin-top:16px; cursor:pointer;">
+              <input type="checkbox" id="calc-consent" />
+              <span style="font-size:13px; color:rgba(255,255,255,.6);">Согласен(а) на обработку персональных данных</span>
+            </label>
+            <p class="calc-error" id="error-consent"></p>
+
+            <div class="calc-submit-wrap">
+              <button class="calc-btn-submit" id="calc-submit-btn" type="button">Рассчитать доходность →</button>
+            </div>
+          </div>
+
+        </div></div><div class="calc-loading" aria-live="polite" aria-label="Загрузка">
+        <div class="calc-loading__spinner" aria-hidden="true"></div>
+        <p class="calc-loading__text">Анализируем рынок недвижимости…</p>
+      </div>
+
+      <div class="calc-results" aria-live="polite">
+        <div class="calc-answers-summary" id="calc-answers-summary"></div>
+        <h2 class="calc-results__title">Результаты анализа</h2>
+        <div class="calc-results__grid">
+          <div class="calc-result-block">
+            <p class="calc-result-block__label">Как можно сдать сейчас:</p>
+            <p class="calc-result-block__number" id="result-current-num">—</p>
+            <p class="calc-result-block__analysis" id="result-current-analysis"></p>
+          </div>
+          <div class="calc-result-block">
+            <p class="calc-result-block__label">Сколько она может стоить:</p>
+            <p class="calc-result-block__number" id="result-potential-num">—</p>
+            <p class="calc-result-block__analysis" id="result-potential-analysis"></p>
+          </div>
+        </div>
+        <div class="calc-results__cta">
+          <button class="btn btn--primary open-contact-overlay" type="button">Узнать стоимость ремонта</button>
+        </div>
+      </div>
+
+    </div></main>
+
+  <div class="calc-header">
+        <h2>Работает на AI. Курируется нашей базой данных.</h2>
+  </div>
+  
+  <footer class="footer" style="background:#0d0d0d; border-top-color: rgba(255,255,255,.08);">
+    <div class="container footer__grid" style="color:rgba(255,255,255,.6);">
+      <div class="footer__col">
+        <div class="logo--sm" style="color:#fff;">Room4Life</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__item">
+          <strong>Телефон/Whatsup:</strong> <a href="tel:+79267100331" style="color:rgba(255,255,255,.8);">+7 (926) 710 03 31</a>
+        </div>
+        <div class="footer__item">
+          <strong>Наш Офис:</strong> Петровка, 17. ап. 5
+        </div>
+        <div class="footer__item">
+          Посещение офиса только по предварительному звонку.
+        </div>
+      </div>
+      <div class="footer__col footer__copy" style="color:rgba(255,255,255,.5);">
+        2018-2026 © Room4Life
+        <div class="footer__note">
+          <button type="button" class="policy-btn" id="open-policy" aria-haspopup="dialog" aria-controls="policy-dialog" style="color:rgba(255,255,255,.4);">политика сайта</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="contact-overlay" class="contact-overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title" aria-hidden="true">
+    <div class="contact-overlay__inner">
+      <button type="button" class="contact-overlay__close" aria-label="Закрыть">×</button>
+      <div class="contact-overlay__content">
+        <div class="contact-overlay__form-col">
+          <h2 class="h2 h2--invert" id="overlay-title">Всегда на связи.</h2>
+          <p class="subhead subhead--invert">Пришлите заявку — проведём бесплатный анализ вашего проекта.</p>
+          <form id="overlay-lead-form" novalidate>
+            <div class="form__row">
+              <label class="label" for="overlay-name">Имя</label>
+              <input id="overlay-name" name="name" class="input" type="text" placeholder="Ваше имя" required />
+            </div>
+            <div class="form__row">
+              <label class="label" for="overlay-phone">Контактные данные</label>
+              <input id="overlay-phone" name="phone" class="input" type="text" inputmode="text" autocomplete="tel" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Вотсап, тг, почта, мобильный телефон" required />
+            </div>
+            <div class="form__row">
+              <label class="label" for="overlay-message">Сообщение</label>
+              <textarea id="overlay-message" name="message" class="textarea" rows="4" placeholder="Кратко опишите задачу"></textarea>
+            </div>
+            <label class="checkbox">
+              <input type="checkbox" required />
+              <span>Согласен(а) на обработку персональных данных</span>
+            </label>
+            <button class="btn btn--dark" type="submit">Отправить</button>
+            <p class="form__hint">Мы свяжемся с вами в ближайшее время</p>
+            <div id="overlay-form-toast" class="toast" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+        <div class="contact-overlay__social-col">
+          <div class="contact-overlay__pfp-wrap">
+            <img src="/pfp1.jpg" alt="Панаско Александр" class="contact__pfp" loading="lazy" />
+          </div>
+          <p class="contact-overlay__social-title">или напишите нам в</p>
+          <a href="#" class="contact-overlay__social-link" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+            Telegram
+          </a>
+          <a href="#" class="contact-overlay__social-link" rel="noopener" aria-label="VK / Max">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.586-1.496c.598-.19 1.365 1.26 2.179 1.815.615.422 1.08.33 1.08.33l2.17-.03s1.135-.07.597-1.123c-.044-.075-.314-.607-1.61-1.716-1.356-1.16-1.174-.973.459-2.98 1.004-1.34 1.404-2.158 1.278-2.508-.12-.336-.866-.247-.866-.247l-2.44.015s-.18-.025-.315.054c-.13.076-.214.254-.214.254s-.388 1.044-.905 1.933c-1.089 1.85-1.526 1.948-1.704 1.832-.414-.268-.31-1.082-.31-1.66 0-1.806.274-2.56-.534-2.752-.268-.065-.465-.107-1.15-.115-.879-.008-1.622.003-2.044.21-.28.136-.495.44-.364.458.163.02.531.1.727.367.254.344.245 1.116.245 1.116s.146 2.126-.34 2.39c-.334.18-.79-.187-1.772-1.866-.504-.872-.885-1.836-.885-1.836s-.073-.174-.2-.267c-.155-.113-.372-.149-.372-.149l-2.32.015s-.348.01-.476.162C4.75 8.6 4.937 9 4.937 9s1.81 4.235 3.861 6.37c1.88 1.957 4.013 1.83 4.013 1.83h.967z"/></svg>
+            Max Messenger
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="policy-dialog" class="policy-dialog" role="dialog" aria-modal="true" aria-labelledby="policy-title" aria-hidden="true">
+    <div class="policy-dialog__inner">
+      <button type="button" class="policy-dialog__close" aria-label="Закрыть">×</button>
+      <h2 id="policy-title" class="policy-dialog__title">Политика сайта</h2>
+      <div class="policy-dialog__text">
+        <p>Этот сайт собирает анонимные данные об использовании через Google Analytics 4 (GA4) для анализа общего трафика и улучшения сервиса, гарантируя отсутствие сбора персональных данных (PII).</p>
+        <p>Любая информация, которую вы добровольно отправляете через контактную форму, используется только для ответа на ваш запрос и не передается третьим лицам.</p>
+        <p>Некоторые изображения незначительно доработаны с помощью ИИ в целях веб-дизайна.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.min.js"></script>
+  <script src="/shared/shared.js"></script>
+  <script src="/shared/calculator.js"></script>
+</body>
+</html>

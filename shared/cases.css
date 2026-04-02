@@ -1,0 +1,234 @@
+/* ===============================
+   Cases Page Styles
+   (adapted from existing styles.css)
+   =============================== */
+
+/* Section */
+.section--cases {
+  background: var(--bg);
+  overflow-x: clip;
+  position: relative;
+  padding: clamp(40px, 6vw, 80px) 0;
+  /* Make case images nearly full-bleed */
+  --media-gap: clamp(6px, 0.8vw, 12px);
+}
+.section--cases .container { width: min(1600px, 98vw); }
+.section--cases .section-head { margin-bottom: clamp(24px, 3vw, 40px); padding: 0 clamp(12px, 2vw, 24px); }
+
+/* Cases intro heading */
+.cases-intro { margin-bottom: clamp(28px, 4vw, 48px); padding: 0 clamp(12px, 2vw, 24px); }
+
+/* Case article */
+.case {
+  padding: clamp(28px, 3vw, 36px) 0;
+  border-top: 1px dashed color-mix(in oklab, var(--primary), transparent 60%);
+  position: relative;
+  z-index: 1;
+}
+.case__head { margin-bottom: clamp(18px, 2vw, 26px); text-align: right; padding: 0 clamp(12px, 2vw, 24px); }
+.case__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  margin: 0 0 6px;
+  font-family: "Roboto", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--accent-dark);
+  font-size: clamp(22px, 2.4vw, 28px);
+}
+.case__index { color: var(--primary); font-size: clamp(66px, 8vw, 140px); line-height: .9; opacity: .95; }
+.case__place { color: var(--accent-dark); opacity: .9; }
+.case__meta { opacity: .95; display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
+.case__meta .dot { opacity: .4; }
+.case__work {
+  margin-top: 10px;
+  font-family: "Roboto Serif", ui-serif, Georgia, serif;
+  color: var(--text);
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 22px);
+  opacity: 0;
+  transform: translateX(24px);
+  transition: transform .6s ease, opacity .6s ease;
+}
+.case.reveal.in-view .case__work { opacity: 1; transform: none; }
+
+/* Grid layouts */
+.case__grid { display: grid; gap: var(--media-gap); }
+.case__grid--3 { grid-template-columns: repeat(3, 1fr); }
+.case__grid--2 { grid-template-columns: repeat(2, 1fr); }
+.case__grid--custom { grid-template-columns: 1fr 1fr; }
+.case__split {
+  display: grid;
+  grid-template-columns: 0.625fr 1fr;
+  gap: var(--media-gap);
+  align-items: center;
+  margin-bottom: var(--media-gap);
+}
+.vertical-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--media-gap);
+}
+
+/* Media frames */
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--media-radius);
+  background: var(--media-bg);
+  border: var(--media-border);
+  box-shadow: var(--shadow-soft);
+  transform: translateZ(0);
+}
+.frame:hover { box-shadow: var(--shadow-lift); }
+article.case .frame,
+article.case .frame > img { cursor: pointer; }
+
+/* Aspect ratios */
+.ar-1x1 { aspect-ratio: 1 / 1; }
+.ar-3x4 { aspect-ratio: 3 / 4; }
+.ar-4x3 { aspect-ratio: 4 / 3; }
+.ar-16x7 { aspect-ratio: 16 / 7; }
+.ar-16x10 { aspect-ratio: 16 / 10; }
+.ar-16x9 { aspect-ratio: 16 / 9; }
+.ar-16x8 { aspect-ratio: 16 / 8; }
+
+.frame > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Aspect ratio fallback for old browsers */
+@supports not (aspect-ratio: 1 / 1) {
+  .frame::before { content: ""; display: block; }
+  .ar-1x1::before { padding-top: 100%; }
+  .ar-3x4::before { padding-top: calc(4 / 3 * 100%); }
+  .ar-4x3::before { padding-top: calc(3 / 4 * 100%); }
+  .ar-16x7::before { padding-top: calc(7 / 16 * 100%); }
+  .ar-16x10::before { padding-top: calc(10 / 16 * 100%); }
+  .ar-16x9::before { padding-top: calc(9 / 16 * 100%); }
+  .ar-16x8::before { padding-top: calc(8 / 16 * 100%); }
+  .frame > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Before/after toggle */
+.before-after { position: relative; }
+.before-after .before,
+.before-after .after { width: 100%; height: 100%; object-fit: cover; display: block; }
+.before-after .after {
+  position: absolute; inset: 0; opacity: 0; transform: scale(1.04);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.before-after.toggled .after { opacity: 1; transform: scale(1); }
+
+/* "Сделать ремонт!" banner on before image */
+.repair-banner {
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  transform: translateY(-50%) scale(1);
+  background: rgba(0,0,0,.65);
+  color: #fff; text-align: center;
+  padding: 10px 16px;
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 800; letter-spacing: .02em; text-transform: uppercase;
+  pointer-events: none;
+  transition: transform .25s ease, opacity .25s ease;
+  z-index: 2;
+}
+.before-after:hover .repair-banner { transform: translateY(-50%) scale(1.04); }
+.before-after.toggled .repair-banner { opacity: 0; }
+
+/* Undo/reverse button (appears after toggle) */
+.reverse-btn {
+  position: absolute;
+  right: 10px; bottom: 10px;
+  width: 38px; height: 38px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.35);
+  display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  backdrop-filter: saturate(1.1) blur(2px);
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease;
+  z-index: 3;
+}
+.reverse-btn:hover { transform: scale(1.06); }
+.reverse-btn:active { transform: scale(.98); }
+.reverse-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.before-after.toggled .reverse-btn { display: inline-flex; }
+
+/* Per-case fullscreen correlated backgrounds */
+.case::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: center / cover no-repeat;
+  opacity: 0;
+  transition: opacity .4s ease;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateX(var(--case-bg-shift, 0px));
+  will-change: transform, opacity;
+}
+.case.active::before { opacity: 0.05; }
+.case[data-case="1"]::before { background-image: url('/case1-bg.png'); }
+.case[data-case="2"]::before { background-image: url('/case2-bg.png'); }
+.case[data-case="3"]::before { background-image: url('/case3-bg.png'); }
+.case[data-case="4"]::before { background-image: url('/case4-bg.png'); }
+.case[data-case="5"]::before { background-image: url('/case5-bg.png'); }
+.case[data-case="6"]::before { background-image: url('/case6-bg.png'); }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; display: none;
+  align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.92); z-index: 2000;
+}
+.lightbox.open { display: flex; }
+.lightbox__img { max-width: 100vw; max-height: 100vh; width: auto; height: auto; object-fit: contain; }
+.lightbox__close {
+  position: fixed; top: 12px; right: 12px;
+  background: transparent; color: #fff; border: none; font-size: 32px; line-height: 1; cursor: pointer;
+}
+.lightbox__nav {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  background: transparent; color: #fff; border: none; font-size: 48px; line-height: 1; cursor: pointer; padding: 8px 12px;
+}
+.lightbox__prev { left: 12px; }
+.lightbox__next { right: 12px; }
+
+/* CTA at bottom of cases page */
+.section--cases-cta {
+  background: var(--bg);
+  padding: clamp(48px, 6vw, 80px) 0;
+  text-align: center;
+  border-top: 1px solid color-mix(in oklab, var(--primary), transparent 70%);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .case__grid--3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .case__split { grid-template-columns: 1fr; }
+}
+@media (min-width: 901px) {
+  .case__split { align-items: stretch; }
+  .case__split .frame { height: 100%; }
+  .case__split .ar-1x1 { aspect-ratio: auto; }
+}
+@media (max-width: 680px) {
+  .case__grid--3,
+  .case__grid--2,
+  .case__grid--custom { grid-template-columns: 1fr; }
+  /* Remove per-case bg on mobile */
+  .case::before { content: none; }
+}

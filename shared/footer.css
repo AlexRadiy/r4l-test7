@@ -1,0 +1,32 @@
+/* ===============================
+   Footer Styles
+   =============================== */
+
+.footer {
+  padding: 26px 0;
+  border-top: 1px solid color-mix(in oklab, var(--accent-dark), transparent 88%);
+  background: var(--bg);
+  position: relative;
+  z-index: 2;
+}
+.footer__grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+}
+.logo--sm {
+  font-family: "Roboto", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--accent-dark);
+  letter-spacing: -0.02em;
+}
+.footer__item a { text-decoration: underline; text-underline-offset: 3px; }
+.footer__copy { opacity: .8; justify-self: end; }
+.footer__note { font-size: 12px; opacity: .65; margin-top: 6px; line-height: 1.4; max-width: 42ch; }
+
+@media (max-width: 840px) {
+  .footer__grid { grid-template-columns: 1fr; gap: 6px; text-align: center; }
+  .footer__copy { justify-self: center; }
+}

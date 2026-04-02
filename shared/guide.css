@@ -1,0 +1,132 @@
+/* ===============================
+   Guide Page Styles
+   =============================== */
+
+/* --- Hero top area --- */
+.guide-hero {
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--brand-gold), var(--bg) 30%) 0%,
+    var(--bg) 60%);
+  min-height: 38vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(48px, 6vw, 80px) 4vw;
+}
+.guide-hero .h2 { margin-bottom: 12px; }
+.guide-hero .subhead { margin-bottom: 0; }
+
+/* --- Form section --- */
+.guide-form-section {
+  padding: clamp(40px, 6vw, 72px) 0;
+  background: var(--accent-dark);
+}
+
+.guide-form-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.guide-form-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 24px 60px rgba(0,0,0,.2);
+  backdrop-filter: blur(10px);
+}
+
+.guide-form-card .form__title {
+  font-family: "Roboto Serif", system-ui, sans-serif;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 24px;
+}
+
+/* Success state (hidden by default) */
+.guide-success {
+  display: none;
+  text-align: center;
+  padding: 8px 0;
+}
+.guide-success.visible { display: block; }
+
+.guide-success__icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.guide-success h3 {
+  font-family: "Roboto Serif", system-ui, sans-serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.guide-success p {
+  color: rgba(255,255,255,.75);
+  font-size: 15px;
+  margin: 0 0 28px;
+}
+
+.guide-success__links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guide-success__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+.guide-success__link:hover {
+  background: rgba(255,255,255,.18);
+  transform: translateY(-2px);
+}
+
+/* Submit button */
+.guide-submit {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--brand-gold);
+  color: var(--accent-dark);
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease;
+  box-shadow: 0 8px 24px rgba(253,183,62,.35);
+}
+.guide-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(253,183,62,.5); }
+.guide-submit:disabled { opacity: .65; cursor: not-allowed; transform: none; }
+
+.form__toast {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(255,255,255,.9);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+  text-align: center;
+}
+.form__toast.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 600px) {
+  .guide-form-card { padding: 24px 20px; }
+}

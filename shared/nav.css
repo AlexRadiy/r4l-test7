@@ -1,0 +1,154 @@
+/* ===============================
+   Navigation Bar
+   =============================== */
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  height: var(--nav-height);
+  background: rgba(247, 244, 239, 0.0);
+  backdrop-filter: blur(0px);
+  transition: background .3s ease, backdrop-filter .3s ease, box-shadow .3s ease;
+}
+
+/* When user scrolls down, nav gets a frosted glass background */
+.site-nav.scrolled {
+  background: rgba(247, 244, 239, 0.88);
+  backdrop-filter: saturate(1.2) blur(14px);
+  box-shadow: 0 1px 0 rgba(10,10,10,.06);
+}
+
+.nav__inner {
+  height: 100%;
+  width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* =========================================
+   Logo + Three.js Sphere
+   ========================================= */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav__logo-text {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: clamp(24px, 3vw, 40px);
+  letter-spacing: -0.02em;
+  
+  /* The Fixes */
+  transform-origin: center; /* Ensures growth starts from the middle */
+  will-change: transform;   /* Improves performance for smooth scaling */
+  
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav__logo:hover .nav__logo-text {
+  /* translateY moves it up, scale grows it. 
+     Combined, it should now stay centered. */
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* Common setup for the "Swoop" paint effect */
+.logo-letters, 
+.logo-four {
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: background-position 0.45s ease-out;
+}
+
+/* LETTERS: Cormorant SC Bold (#1a1a1a) */
+.logo-letters {
+  font-family: "Cormorant SC", serif;
+  font-weight: 700;
+  /* Hover: #f5c842 | Default: #1a1a1a */
+  background-image: linear-gradient(115deg, #f5c842 50%, #1a1a1a 50%);
+}
+
+/* NUMBER 4: Jost Regular (#f5c842) */
+.logo-four {
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  padding: 0 1px;
+  font-size: clamp(34px, 3vw, 43px);
+  /* Hover: #1a1a1a | Default: #f5c842 */
+  background-image: linear-gradient(110deg, #1a1a1a 50%, #f5c842 50%);
+}
+
+/* Trigger the "Swoop" paint-over on hover */
+.nav__logo:hover .logo-letters,
+.nav__logo:hover .logo-four {
+  background-position: 0 0; 
+}
+
+.nav__sphere {
+  width: 36px;
+  height: 36px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ===============================
+   Nav Links
+   =============================== */
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.nav__link {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(10,10,10,.85);
+  text-decoration: none;
+  transition: color .2s ease, background .2s ease;
+  white-space: nowrap;
+}
+
+.nav__link:hover { color: #0A0A0A; background: rgba(10,10,10,.08); }
+.site-nav.scrolled .nav__link { color: var(--text); }
+.site-nav.scrolled .nav__link:hover { color: var(--accent-dark); background: rgba(10,10,10,.06); }
+
+/* Active link */
+.nav__link.active {
+  color: #0A0A0A;
+  background: rgba(10,10,10,.1);
+  font-weight: 600;
+}
+.site-nav.scrolled .nav__link.active {
+  color: var(--accent-dark);
+  background: rgba(253,183,62,.18);
+}
+
+/* ===============================
+   Mobile Adjustments
+   =============================== */
+@media (max-width: 680px) {
+  .nav__sphere { display: none; }
+  .nav__logo-text { font-size: clamp(20px, 5vw, 28px); }
+  .nav__link { padding: 5px 8px; font-size: 13px; }
+  .nav__inner { gap: 8px; }
+}
+
+/* Body padding so content doesn't go under fixed nav */
+body { padding-top: var(--nav-height); }

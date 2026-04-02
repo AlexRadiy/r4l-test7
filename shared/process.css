@@ -1,0 +1,196 @@
+/* ===============================
+   Process Page Styles
+   (adapted from existing styles.css)
+   =============================== */
+
+/* Section */
+.section--process {
+  padding: clamp(0px, 0px, 0px) 0 clamp(28px, 4vh, 40px);
+  position: relative;
+  background: var(--bg);
+}
+
+/* Sticky heading */
+.section--process .h2 {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 300;
+  background: var(--bg);
+  padding: 16px 0 12px;
+  box-shadow: 0 4px 12px -4px rgba(10,10,10,.04);
+}
+
+/* Card stack container */
+.stack { position: relative; }
+
+/* Each step card */
+/* Optimized Step Card */
+.step-card {
+  position: sticky;
+  top: calc(var(--nav-height) + clamp(90px, 12vh, 140px));
+  width: min(1100px, 96vw);
+  margin: 0 auto clamp(28px, 4vh, 40px);
+  
+  /* Use a solid background with slight transparency - NO backdrop-filter */
+  background: color-mix(in oklab, var(--bg), white 15%);
+  
+  border: 1px solid color-mix(in oklab, var(--primary), white 65%);
+  box-shadow: var(--shadow-soft);
+  border-radius: 8px;
+  padding: clamp(28px, 3.6vw, 44px);
+  
+  /* Standard stacking offset */
+  transform: translateY(calc(var(--offset, 0) * 6px)) translateZ(0);
+  
+  /* Performance hints */
+  transition: opacity 0.4s ease;
+  will-change: opacity; /* Do not put transform here if it doesn't animate */
+}
+
+/* Passed Card State */
+.step-card.blurred {
+  filter: none; 
+  opacity: 0.3; /* Visually "pushes" it back */
+  
+  /* IMPORTANT: Removed 'scale' here. 
+     Scaling changes the result of getBoundingClientRect(), 
+     which confuses your scroll-anim logic in JS.
+  */
+}
+
+/* Ensure the floating anims stay on top of the sticky cards */
+.scroll-anim {
+  z-index: 1000; /* Higher than card z-index (100+) */
+}
+
+.step-title {
+  margin: 0 0 6px;
+  font-family: "Roboto", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--accent-dark);
+  font-size: clamp(24px, 2.6vw, 30px);
+}
+.step-text { margin: 0; font-size: clamp(16px, 1.5vw, 20px); line-height: 1.65; }
+
+/* Scroll overlay animation images */
+.scroll-anim {
+  position: fixed; inset: 0; pointer-events: none; z-index: 600;
+}
+.scroll-anim__item {
+  position: fixed;
+  opacity: 0; transform: translateZ(0) scale(.92);
+  transition: opacity .45s ease, transform .45s ease;
+  filter: drop-shadow(0 10px 30px rgba(10,10,10,.18));
+  will-change: transform, opacity; pointer-events: none;
+}
+.scroll-anim__item.visible { opacity: 1; transform: translateZ(0) scale(1); }
+.scroll-anim__item.visible.dim { opacity: .6; transform: translateZ(0) scale(.98); }
+
+.scroll-anim__item img {
+  width: 100%; height: auto; display: block;
+  animation: gentleTwist 7s ease-in-out infinite alternate;
+  transform-origin: 50% 50%;
+}
+
+/* anim1: left side */
+.scroll-anim__item--1 {
+  top: clamp(150px, 10vh, 140px);
+  left: clamp(46px, 2.2vw, 24px);
+  width: clamp(120px, 14vw, 220px);
+}
+/* anim2: right side */
+.scroll-anim__item--2 {
+  top: 40%;
+  right: clamp(6px, 2.2vw, 24px);
+  width: clamp(140px, 16vw, 260px);
+  transform-origin: 80% 50%;
+}
+/* anim3: left bottom */
+.scroll-anim__item--3 {
+  left: clamp(46px, 2.2vw, 24px);
+  bottom: clamp(30px, 8vh, 120px);
+  width: clamp(120px, 16vw, 220px);
+}
+/* anim4: top-right */
+.scroll-anim__item--4 {
+  top: clamp(150px, 10vh, 140px);
+  right: clamp(46px, 2.2vw, 24px);
+  width: clamp(120px, 14vw, 220px);
+}
+/* anim0: between anim4 and CTA button */
+.scroll-anim__item--0 {
+  top: calc(var(--safe-top) + var(--nav-height) + clamp(40px, 5vw, 60px));
+  right: clamp(80px, 10vw, 120px);
+  width: clamp(80px, 10vw, 140px);
+  z-index: 600;
+}
+.scroll-anim__item--0 img { animation: none; }
+
+/* CTA at bottom of process page */
+.section--process-cta {
+  background: var(--bg);
+  padding: clamp(48px, 6vw, 80px) 0;
+  text-align: center;
+  border-top: 1px solid color-mix(in oklab, var(--primary), transparent 70%);
+}
+
+/* Guarantee text after sticky notes */
+.process-guarantee-text {
+  padding: clamp(32px, 4vh, 60px) 0 clamp(48px, 6vh, 80px);
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.process-guarantee-text .h2 {
+  font-size: clamp(28px, 3.6vw, 52px);
+  line-height: 1.2;
+}
+
+/* Video inside sticky notes */
+.step-card__content {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(16px, 2.5vw, 32px);
+}
+.step-card__text-wrap {
+  flex: 1;
+  min-width: 0;
+}
+.step-card__video-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.step-card__anim-video {
+  height: 100%;
+  max-height: 150px;
+  min-height: 60px;
+  width: auto;
+  display: block;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px) {
+  .section--process .h2 {
+    top: var(--nav-height);
+    padding: 12px 0 10px;
+    font-size: clamp(22px, 4.5vw, 32px);
+  }
+  .step-card {
+    top: calc(var(--nav-height) + clamp(44px, 8vh, 80px));
+    width: calc(100% - 32px);
+    max-width: 360px;
+    margin: 0 auto clamp(20px, 4vh, 28px);
+    padding: clamp(18px, 3.2vw, 28px);
+    border-radius: 10px;
+  }
+  .scroll-anim__item { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-anim__item { transition: none; }
+  .scroll-anim__item img { animation: none; }
+}
