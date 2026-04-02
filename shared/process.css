@@ -187,6 +187,18 @@
     padding: clamp(18px, 3.2vw, 28px);
     border-radius: 10px;
   }
+  /* Video stacks below text on mobile */
+  .step-card__content {
+    flex-direction: column;
+  }
+  .step-card__video-wrap {
+    width: 100%;
+    justify-content: center;
+  }
+  .step-card__anim-video {
+    max-height: 140px;
+    width: auto;
+  }
   .scroll-anim__item { display: none !important; }
 }
 

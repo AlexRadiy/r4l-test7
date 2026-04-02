@@ -32,7 +32,7 @@
   <!-- Page-specific styles -->
   <link rel="stylesheet" href="/shared/guide.css" />
 </head>
-<body>
+<body class="has-burger-nav">
 
   <!-- Floating CTA (all pages) -->
   <button class="cta-floating" aria-label="Бесплатная консультация">Бесплатная консультация</button>
@@ -52,8 +52,22 @@
         <a class="nav__link" href="/cases">Кейсы</a>
         <a class="nav__link" href="/calculator">Калькулятор</a>
       </nav>
+      <button class="nav__burger" id="nav-burger" aria-label="Меню" aria-expanded="false" aria-controls="nav-mobile-menu">
+        <span class="nav__burger-bar"></span>
+        <span class="nav__burger-bar"></span>
+        <span class="nav__burger-bar"></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile-menu" id="nav-mobile-menu" aria-hidden="true">
+    <a class="nav__mobile-link" href="/welcome">Главная</a>
+    <a class="nav__mobile-link" href="/process">Процесс</a>
+    <a class="nav__mobile-link" href="/cases">Кейсы</a>
+    <a class="nav__mobile-link" href="/calculator">Калькулятор</a>
+    <button class="nav__mobile-cta" id="nav-mobile-cta">Контакты</button>
+  </div>
 
   <!-- ======================== -->
   <!-- GUIDE HERO               -->
@@ -172,7 +186,7 @@
       </div>
       <div class="footer__col">
         <div class="footer__item">
-          <strong>Телефон/Whatsup:</strong> <a href="tel:+79267100331">+7 (926) 710 03 31</a>
+          <strong>Телефон/Whatsup:</strong> <a href="tel:+79266047397">+7 (926) 604 73 97</a>
         </div>
         <div class="footer__item">
           <strong>Наш Офис:</strong> Петровка, 17. ап. 5
@@ -239,13 +253,10 @@
             
           </div>
           <p class="contact-overlay__social-title">или напишите нам в</p>
-          <a href="#" class="contact-overlay__social-link" rel="noopener" aria-label="Telegram">
+          <a href="tel:+79266047397" class="contact-overlay__phone-display">+7 (926) 604-73-97</a>
+          <a href="https://t.me/AlexandrInvestMaster" class="contact-overlay__social-link" rel="noopener" target="_blank" aria-label="Telegram">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
             Telegram
-          </a>
-          <a href="#" class="contact-overlay__social-link" rel="noopener" aria-label="Max">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.586-1.496c.598-.19 1.365 1.26 2.179 1.815.615.422 1.08.33 1.08.33l2.17-.03s1.135-.07.597-1.123c-.044-.075-.314-.607-1.61-1.716-1.356-1.16-1.174-.973.459-2.98 1.004-1.34 1.404-2.158 1.278-2.508-.12-.336-.866-.247-.866-.247l-2.44.015s-.18-.025-.315.054c-.13.076-.214.254-.214.254s-.388 1.044-.905 1.933c-1.089 1.85-1.526 1.948-1.704 1.832-.414-.268-.31-1.082-.31-1.66 0-1.806.274-2.56-.534-2.752-.268-.065-.465-.107-1.15-.115-.879-.008-1.622.003-2.044.21-.28.136-.495.44-.364.458.163.02.531.1.727.367.254.343.247 1.05.247 1.05s.147 2.128-.343 2.394c-.337.181-.8-.189-1.793-1.881-.51-.878-.895-1.85-.895-1.85s-.074-.18-.202-.278c-.154-.116-.37-.153-.37-.153l-2.32.015s-.348.01-.476.16c-.113.135-.009.414-.009.414s1.816 4.25 3.872 6.395c1.886 1.963 4.027 1.834 4.027 1.834h.97z"/></svg>
-            Max Messenger
           </a>
         </div>
       </div>

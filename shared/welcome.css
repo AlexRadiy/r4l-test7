@@ -267,29 +267,41 @@ body:not(.scrolled-past-hero) .cta-floating {
   flex-direction: column;
   align-items: flex-start;
   gap: 3px;
-  padding: 10px 10px;
-  background: #1a1a1a;
-  padding: 14px 22px;
-  border-radius: 22px;
-  color: #fff;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: rgba(247, 244, 239, 0.85);
   text-decoration: none;
-  backdrop-filter: blur(7px);
+  backdrop-filter: none;
   font-weight: 700;
-  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+  transition: color .2s ease, transform .2s ease;
   animation: none;
   margin-top: 0;
 }
 .hero__case-btn--left:hover {
-  background: #e093182f;
+  color: #fff;
+  background: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 0 20px 6px rgba(0,0,0,0.4);
+  box-shadow: none;
 }
 .hero__case-btn--left .hero__case-btn-title {
-  font-size: 30px;
+  font-size: 22px;
+  font-family: "Roboto Serif", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
 }
 .hero__case-btn--left .hero__case-btn-sub {
-  font-size: 12px;
-  opacity: .75;
+  font-size: 11px;
+  opacity: .65;
+  text-shadow: 0 1px 6px rgba(0,0,0,.4);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 680px) {
+  .hero__case-btn--left { display: none !important; }
 }
 
 .link-text-style {

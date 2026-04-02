@@ -283,9 +283,39 @@ button { font-family: inherit; cursor: pointer; }
   fill: currentColor;
 }
 
+/* Big phone number in contact overlay */
+.contact-overlay__phone-display {
+  font-size: clamp(20px, 3.5vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.01em;
+  padding: 10px 0 4px;
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+.contact-overlay__phone-display:hover { opacity: 0.8; }
+
 @media (max-width: 720px) {
   .contact-overlay__content { grid-template-columns: 1fr; }
   .contact-overlay__social-col { padding-top: 0; }
+
+  /* pfp half size on mobile */
+  .contact-overlay__pfp-wrap {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    order: 3;
+  }
+
+  /* phone and tg above pfp on mobile */
+  .contact-overlay__social-title { order: 0; }
+  .contact-overlay__phone-display { order: 1; }
+  .contact-overlay__social-link { order: 2; }
+  .contact-overlay__social-col {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* Reveal animations (scroll-triggered via IntersectionObserver) */
