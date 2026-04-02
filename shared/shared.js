@@ -355,6 +355,69 @@
     });
   }
 
+  /* ---- Burger menu (mobile, pages with has-burger-nav class) ---- */
+  if (document.body.classList.contains('has-burger-nav')) {
+    const burgerBtn = $('#nav-burger');
+    const mobileMenu = $('#nav-mobile-menu');
+
+    if (burgerBtn && mobileMenu) {
+      // Mark active link in mobile menu
+      $$('.nav__mobile-link', mobileMenu).forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        const linkPath = href.replace(/\/$/, '');
+        if (linkPath && (currentPath === linkPath || currentPath.startsWith(linkPath + '/'))) {
+          link.classList.add('active');
+        }
+      });
+
+      function openMobileMenu() {
+        mobileMenu.classList.add('open');
+        burgerBtn.classList.add('open');
+        burgerBtn.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove('open');
+        burgerBtn.classList.remove('open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+
+      burgerBtn.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('open')) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
+
+      // Close menu when a link is tapped
+      $$('.nav__mobile-link', mobileMenu).forEach((link) => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      // "Контакты" button in mobile menu opens contact overlay
+      const mobileCta = $('#nav-mobile-cta');
+      mobileCta?.addEventListener('click', () => {
+        closeMobileMenu();
+        openContactOverlay();
+      });
+
+      // Close menu on outside click
+      document.addEventListener('click', (e) => {
+        const nav = $('#site-nav');
+        if (
+          mobileMenu.classList.contains('open') &&
+          !mobileMenu.contains(e.target) &&
+          !nav?.contains(e.target)
+        ) {
+          closeMobileMenu();
+        }
+      });
+    }
+  }
+
   /* ---- Policy dialog ---- */
   const policyBtn = $('#open-policy');
   const policyDlg = $('#policy-dialog');
