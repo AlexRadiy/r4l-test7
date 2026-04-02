@@ -308,7 +308,7 @@ button { font-family: inherit; cursor: pointer; }
     order: 3;
   }
 
-  /* phone and tg above pfp on mobile */
+  /* social title, phone and tg above pfp on mobile */
   .contact-overlay__social-title { order: 0; }
   .contact-overlay__phone-display { order: 1; }
   .contact-overlay__social-link { order: 2; }
